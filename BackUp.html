@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script></script>
+</head>
+<style>
+    * {
+        text-align: center;
+    }
+
+    table {
+        width: 100%;
+        border-top: 1.75px solid #7dd01e;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border-bottom: 1.75px solid #bbbbbb;
+        padding: 10px;
+    }
+
+    .button1 {
+        background-color: cornflowerblue;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        margin-left: 5px;
+        margin-top: 10px;
+        box-shadow: none;
+    }
+
+    .button2 {
+        background-color: orangered;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        margin-left: 5px;
+        margin-top: 10px;
+        box-shadow: none;
+    }
+
+    .button3 {
+        background-color: lawngreen;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        margin-left: 5px;
+        margin-top: 10px;
+        box-shadow: none;
+    }
+</style>
+
+<body>
+    <table id="Table1" border="0.1" bordercolor="silver" align="center">
+        <tr style="background-color : lightgrey">
+            <th>
+                <input type="checkbox" id="chPid" name="chUid" value="0">
+            </th>
+            <th>이름</th>
+            <th>수험번호</th>
+            <th>email</th>
+            <th>전화번호</th>
+            <th>대분류</th>
+            <th>중분류</th>
+            <th>최종제출여부</th>
+            <th>관리</th>
+        </tr>
+        <tr id="uid1">
+            <!-- Data 1 -->
+            <th>
+                <input type="checkbox" id="chPid" name="chUid" value="1">
+            </th>
+            <td>오다인10</td>
+            <td>60920002</td>
+            <td>jjw5012310@huno.kr</td>
+            <td>010-0000-0000</td>
+            <td>무기계약직</td>
+            <td>KLACC중독관리전문위원(상담사)</td>
+            <td>Y</td>
+            <td>
+                <button class="button1" onclick=alert('오다인10')>지원서</button>
+                <button class="button2" onclick="bt2Change()">비밀번호변경</button>
+                <button class="button3" onclick="deleteRow(this)">삭제</button>
+                <br>
+                <button class="button3" onclick="bt4change()">이력서최종지원풀기</button>
+            </td>
+        </tr><!-- Data 1  -->
+        <tr id="uid2">
+            <!--  Data 2 -->
+            <th>
+                <input type="checkbox" id="chPid" name="chUid" value="2">
+            </th>
+            <td>신동현10</td>
+            <td>60920001</td>
+            <td>10@huno.kr</td>
+            <td>010-0000-0000</td>
+            <td>무기계약직</td>
+            <td>KLACC중독관리전문위원(상담사)</td>
+            <td>Y</td>
+            <td>
+                <button class="button1" onclick=alert('신동현10')>지원서</button>
+                <button class="button2" onclick="bt2Change()">비밀번호변경</button>
+                <button class="button3" onclick="deleteRow(this)">삭제</button>
+                <br>
+                <button class="button3" onclick="bt4change()">이력서최종지원풀기</button>
+            </td>
+        </tr><!-- Data 2 -->
+        <tr id="uid3">
+            <!-- Data 3 -->
+            <th>
+                <input type="checkbox" id="chPid" name="chUid" value="3">
+            </th>
+            <td>오다인9</td>
+            <td>60910002</td>
+            <td>jjw5012310@huno.kr</td>
+            <td>010-0000-0000</td>
+            <td>무기계약직</td>
+            <td>KLACC중독관리전문위원(선임)</td>
+            <td>Y</td>
+            <td>
+                <button class="button1" onclick=alert('오다인9')>지원서</button>
+                <button class="button2" onclick="bt2Change()">비밀번호변경</button>
+                <button class="button3" onclick="deleteRow(this)">삭제</button>
+                <br>
+                <button class="button3" onclick="bt4change()">이력서최종지원풀기</button>
+            </td>
+        </tr><!-- Data 3 -->
+        <tr id="uid4">
+            <!-- Data 4 -->
+            <th>
+                <input type="checkbox" id="chPid" name="chUid" value="4">
+            </th>
+            <td>신동현9</td>
+            <td>60910001</td>
+            <td>9@huno.kr</td>
+            <td>010-0000-0000</td>
+            <td>무기계약직</td>
+            <td>KLACC중독관리전문위원(선임)</td>
+            <td>Y</td>
+            <td>
+                <button class="button1" onclick=alert('신동현9')>지원서</button>
+                <button class="button2" onclick="bt2Change()">비밀번호변경</button>
+                <button class="button3" onclick="deleteRow(this)">삭제</button>
+                <br>
+                <button class="button3" onclick="bt4change()">이력서최종지원풀기</button>
+            </td>
+        </tr><!-- Data 4 -->
+        <tr id=" uid5">
+            <!-- Data 5 -->
+            <th>
+                <input type="checkbox" id="chPid" name="chUid" value="5">
+            </th>
+            <td>오다인8</td>
+            <td>50800002</td>
+            <td>jjw5012310@huno.kr</td>
+            <td>010-0000-0000</td>
+            <td>계약직</td>
+            <td>슬롯머신게임기획자</td>
+            <td>Y</td>
+            <td>
+                <button class="button1" onclick=alert('오다인8')>지원서</button>
+                <button class="button2" onclick="bt2Change()">비밀번호변경</button>
+                <button class="button3" onclick="deleteRow(this)">삭제</button>
+                <br>
+                <button class="button3" onclick="bt4change()">이력서최종지원풀기</button>
+            </td>
+        </tr><!-- Data 5 -->
+        <tr id="uid6">
+            <!-- Data 6 -->
+            <th>
+                <input type="checkbox" id="chPid" name="chUid" value="6">
+            </th>
+            <td>신동현8</td>
+            <td>50800001</td>
+            <td>8@huno.kr</td>
+            <td>010-0000-0000</td>
+            <td>계약직</td>
+            <td>슬롯머신게임기획자</td>
+            <td>Y</td>
+            <td>
+                <button class="button1" onclick=alert('신동현8')>지원서</button>
+                <button class="button2" onclick="bt2Change()">비밀번호변경</button>
+                <button class="button3" onclick="deleteRow(this)">삭제</button>
+                <br>
+                <button class="button3" onclick="bt4change()">이력서최종지원풀기</button>
+            </td>
+        </tr><!-- Data 6 -->
+        <tr id=" uid7">
+            <!-- Data 7 -->
+            <th>
+                <input type="checkbox" id="chPid" name="chUid" value="7">
+            </th>
+            <td>오다인7</td>
+            <td>40700002</td>
+            <td>jjw5012310@huno.kr</td>
+            <td>010-0000-0000</td>
+            <td>촉탁직</td>
+            <td>슬롯머신개발전문가</td>
+            <td>Y</td>
+            <td>
+                <button class="button1" onclick=alert('오다인7')>지원서</button>
+                <button class="button2" onclick="bt2Change()">비밀번호변경</button>
+                <button class="button3" onclick="deleteRow(this)">삭제</button>
+                <br>
+                <button class="button3" onclick="bt4change()">이력서최종지원풀기</button>
+            </td>
+        </tr><!-- Data 7 -->
+    </table>
+
+    <script>
+        document.getElementById("Ya1").innerHTML = a1;
+        function bt2Change() {
+            var bt2before = confirm("비밀번호를 변경하시겠습니까?");
+            if (bt2before) {
+                alert("비밀번호가 변경되었습니다.");
+            }
+        }
+
+        function deleteRow(button) {
+            var row = button.parentNode.parentNode.parentNode;
+            var table = row.parentNode;
+            table.deleteRow(row.rowIndex); //행이 삭제는 되는데 맨 위줄부터 삭제됨
+        }
+
+        function bt4change() {
+            var bt4before = confirm("최종지원을 푸시겠습니까?");
+            if (bt4before) {
+                var table = document.getElementById("Table1");
+                var rowIndex = this;
+                var cellIndex = 8;
+
+                var cell = table.rows[rowIndex].cells[cellIndex];
+
+                cell.innerHTML = ""; //작동 X
+            }
+        }
+    </script>
+</body>
+</html>
