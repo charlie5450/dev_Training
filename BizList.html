@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>기업목록</title>
+    <script></script>
+</head>
+<style>
+    * {
+        text-align: center;
+    }
+
+    table {
+        width: 100%;
+        border: 0.1px solid #000000;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border:0.1px solid #000000;
+    }
+
+    .searchbt {
+        background-color: dodgerblue;
+        border: none;
+        color: white;
+        margin-right: 30px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        box-shadow: none;
+        width: 60px;
+        height: 30px;
+        font-size: 15px;
+        border: 0.1px solid #000000;
+        float:right;
+    }
+
+    .button2 {
+        background-color: limegreen;
+        border: none;
+        color: white;
+        margin-left: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        box-shadow: none;
+        border: 0.1px solid #000000;
+    }
+
+    .button3 {
+        background-color: red;
+        border: none;
+        color: white;
+        margin-left: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        box-shadow: none;
+        border: 0.1px solid #000000;
+    }
+
+    .registerCom {
+        background-color: dodgerblue;
+        border: none;
+        color: white;
+        margin-left: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        box-shadow: none;
+        float: right;
+        border: 0.1px solid #000000;
+    }
+
+    div {
+        background-color:lightgrey;
+    }
+
+    #top {
+        border: 1px solid;
+        overflow:hidden;
+    }
+
+    .inputComName {
+        width: 120px;
+        height: 20px;
+        font-size: 15px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-right : 25px;
+        border: 0.1px solid #000000;
+    }
+
+    .inputName {
+        width: 150px;
+        height: 20px;
+        font-size: 15px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 0.1px solid #000000;
+    }
+
+    .inputNumber {
+        width: 50px;
+        height: 20px;
+        font-size: 15px;
+        margin-right: 5px;
+        margin-bottom: 10px;
+        border: 0.1px solid #000000;
+    }
+
+    .inputEmail {
+        width: 150px;
+        height: 20px;
+        font-size: 15px;
+        margin-bottom: 10px;
+        border: 0.1px solid #000000;
+    }
+
+    .checkbox {
+        margin-bottom: 10px;
+        margin-top: 10px;
+        border: 1px solid dodgerblue;
+    }
+</style>
+
+<body>
+    <div id="top">
+        기업명 <input type="text" id="comName" class="inputComName">
+        사용자이름 <input type="text" id="name" class="inputName"><br>
+        연락처 <input type="number" id="num1" class="inputNumber"><input type="number" id="num2" class="inputNumber"><input type="number" id="num3" class="inputNumber">
+        이메일 <input type="text" id="email" class="inputEmail"><br>
+        <button class="searchbt" onclick="search()">조회</button><br>
+    </div>
+
+    <div>
+        <button class="registerCom" id="popUpBtn">기업등록</button>
+    </div>
+
+    <table id="Table1" border="0.1" bordercolor="black" align="center">
+        <tr style="background-color : lightgrey">
+            <th>
+                <input type="checkbox" id="chPid" name="chUid" value="0" class="checkbox" onclick="check()">
+            </th>
+            <th>기업명</th>
+            <th>사용자이름</th>
+            <th>연락처</th>
+            <th>email</th>
+            <th>관리</th>
+        </tr>
+        <tr id="기업명1">
+            <!-- Data 1 -->
+            <th>
+                <input type="checkbox" id="chPid" name="chUid" value="1">
+            </th>
+            <td id="com1" align="center" onClick="window.open('BizView.html','기업보기','width=1000, height=800');" style="cursor:pointer;">기업명1</td>
+            <td id="user1">사용자1</td>
+            <td id="telnum1">010-0000-0001</td>
+            <td id="email1">test1@naver.com</td>
+            <td>
+                <button class="button2" onclick="bt1Change(this)">수정</button>
+                <button class="button3" onclick="bt2Change(this)">삭제</button>
+            </td>
+        </tr><!-- Data 1  -->
+        <tr id="기업명2">
+            <!--  Data 2 -->
+            <th>
+                <input type="checkbox" id="chPid" name="chUid" value="1">
+            </th>
+            <td id="com2" align="center" onClick="window.open('BizView.html','기업보기','width=1000, height=800');" style="cursor:pointer;">기업명2</td>
+            <td id="user2">사용자2</td>
+            <td id="telnum2">010-0000-0002</td>
+            <td id="email2">test2@naver.com</td>
+            <td>
+                <button class="button2" onclick="bt1Change(this)">수정</button>
+                <button class="button3" onclick="bt2Change(this)">삭제</button>
+            </td>
+        </tr><!-- Data 2 -->
+        <tr id="기업명3">
+            <!-- Data 3 -->
+            <th>
+                <input type="checkbox" id="chPid" name="chUid" value="1">
+            </th>
+            <td id="com3" align="center" onClick="window.open('BizView.html','기업보기','width=1000, height=800');" style="cursor:pointer;">기업명3</td>
+            <td id="user3">사용자3</td>
+            <td id="telnum2">010-0000-0003</td>
+            <td id="email3">test3@naver.com</td>
+            <td>
+                <button class="button2" onclick="bt1Change(this)">수정</button>
+                <button class="button3" onclick="bt2Change(this)">삭제</button>
+            </td>
+        </tr><!-- Data 3 -->
+    </table>
+
+    <script>
+        function check() {//?
+            var checkboxes = document.getElementsByClassName('Check');
+        }
+
+        function bt1Change(element) {
+            window.open("BizChange.html", "수정", "width=1000, height=800");
+        }
+
+        function bt2Change(obj) {
+            var bt2before = confirm("해당 사용자를 정말 삭제하겠습니까?");
+            if (bt2before) {
+                var tr = obj.parentElement.parentElement;
+                tr.style.display = "none";
+            }
+        }
+
+        document.getElementById('popUpBtn').addEventListener('click', function () {
+            var popupWindow = window.open('BizForm.html', '기업목록', 'width=1000,height=800');
+        });
+
+        function search() { //회사이름으로는 검색이 되지만 이메일로는 안 됨
+            var input1, input2, filter1, filter2, table, tr;
+            input1 = document.getElementById("comName");
+            input2 = document.getElementById("email");
+
+            filter1 = input1.value.toUpperCase();
+            filter2 = input2.value.toUpperCase();
+            table = document.getElementById("Table1");
+            tr = table.querySelectorAll("tr");
+
+            tr.forEach(function (row) {
+                var id = row.getAttribute("id");
+                var email = row.querySelector("[id*='email']");
+                if (id) {
+                    if (id === filter1) {
+                        row.style.display = "";
+                    } else if (email.textContent.toLocaleUpperCase().indexOf(filter2) != -1) {
+                        row.style.display = "";
+                    }
+                    else {
+                        row.style.display = "none";
+                    }
+                }
+                
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>기업보기</title>
+</head>
+<style>
+    .line {
+        border-bottom: 1px solid black;
+    }
+
+    .closeBtn {
+        background-color: white;
+        border: none;
+        color: black;
+        margin:auto;
+        display:block;
+        box-shadow: none;
+        border: 1px solid;
+    }
+</style>
+<body>
+    <div> 기업보기 </div>
+    <div class="line"></div>
+    <div>
+        <table>
+            <tr>
+                <td>
+                    기업명
+                </td>
+                <td id="comName">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    사업자번호
+                </td>
+                <td id="comNumber">
+                    123-45-67890
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    아이디
+                </td>
+                <td id="comId">
+                    biz1
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    담당자
+                </td>
+                <td id="officer">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    대표번호
+                </td>
+                <td id="number">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    대표 이메일
+                </td>
+                <td id="email">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="line"></div>
+    <div>
+        <button class="closeBtn" onclick="closeChange()">닫기</button>
+    </div>
+</body>
+
+<script>
+
+        fetch('BizList.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('네트워크 오류');
+                }
+                return response.text();
+            })
+            .then(data => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(data, 'text/html');
+
+                if (data.includes("1")) {
+                    const com1 = doc.getElementById('com1');
+                    const user1 = doc.getElementById('user1');
+                    const telnum1 = doc.getElementById('telnum1');
+                    const email1 = doc.getElementById('email1');
+
+                    if (com1 && user1 && telnum1 && email1) {
+                        document.getElementById('comName').textContent = com1.textContent;
+                        document.getElementById('officer').textContent = user1.textContent;
+                        document.getElementById('number').textContent = telnum1.textContent;
+                        document.getElementById('email').textContent = email1.textContent;
+                    }
+                }
+                // 작동안함 - 1의 값이 나옴
+                else if (data.includes("2")) {
+                    const com2 = doc.getElementById('com2');
+                    const user2 = doc.getElementById('user2');
+                    const telnum2 = doc.getElementById('telnum2');
+                    const email2 = doc.getElementById('email2');
+
+                    if (com2 && user2 && telnum2 && email2) {
+                        document.getElementById('comName').textContent = com2.textContent;
+                        document.getElementById('officer').textContent = user2.textContent;
+                        document.getElementById('number').textContent = telnum2.textContent;
+                        document.getElementById('email').textContent = email2.textContent;
+                    }
+                } 
+
+                else {
+                    const com3 = doc.getElementById('com3');
+                    const user3 = doc.getElementById('user3');
+                    const telnum3 = doc.getElementById('telnum3');
+                    const email3 = doc.getElementById('email3');
+
+                    if (com3 && user3 && telnum3 && email3) {
+                        document.getElementById('comName').textContent = com3.textContent;
+                        document.getElementById('officer').textContent = user3.textContent;
+                        document.getElementById('number').textContent = telnum3.textContent;
+                        document.getElementById('email').textContent = email3.textContent;
+                    }
+                } 
+            })
+
+    function closeChange() {
+        var closeBefore = confirm("창을 닫으시겠습니까?");
+        if (closeBefore) {
+            window.close();
+        }//취소 확인 순서 바꾸기 : 버튼 커스텀
+    }
+</script>
+</html>
