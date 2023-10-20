@@ -1,0 +1,104 @@
+<tr id="기업명1">
+    <!-- Data 1 -->
+    <th>
+        <label for="checkbox">
+            <input type="checkbox" class="subCheck" id="box1">
+        </label>
+    </th>
+    <td id="com1" align="center" onClick="window.open('BizView.html','기업보기','width=1000, height=800');" style="cursor:pointer;">기업명1</td>
+    <td id="user1">사용자1</td>
+    <td id="telnum1">010-0000-0001</td>
+    <td id="email1">test1@naver.com</td>
+    <td>
+        <button class="button2" onclick="bt1Change(this)">수정</button>
+        <button class="button3" onclick="bt2Change(this)">삭제</button>
+    </td>
+</tr><!-- Data 1  -->
+<tr id="기업명2">
+    <!--  Data 2 -->
+    <th>
+        <label for="checkbox">
+            <input type="checkbox" class="subCheck" id="box2">
+        </label>
+    </th>
+    <td id="com2" align="center" onClick="window.open('BizView.html','기업보기','width=1000, height=800');" style="cursor:pointer;">기업명2</td>
+    <td id="user2">사용자2</td>
+    <td id="telnum2">020-0000-0002</td>
+    <td id="email2">test2@naver.com</td>
+    <td>
+        <button class="button2" onclick="bt1Change(this)">수정</button>
+        <button class="button3" onclick="bt2Change(this)">삭제</button>
+    </td>
+</tr><!-- Data 2 -->
+<tr id="기업명3">
+    <!-- Data 3 -->
+    <th><label for="checkbox">
+        <input type="checkbox" class="subCheck" id="box3">
+        </label>
+    </th>
+    <td id="com3" align="center" onClick="window.open('BizView.html','기업보기','width=1000, height=800');" style="cursor:pointer;">기업명3</td>
+    <td id="user3">사용자3</td>
+    <td id="telnum2">030-0000-0003</td>
+    <td id="email3">test3@naver.com</td>
+    <td>
+        <button class="button2" onclick="bt1Change(this)">수정</button>
+        <button class="button3" onclick="bt2Change(this)">삭제</button>
+    </td>
+</tr><!-- Data 3 -->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <form id="form1" method="post" >
+        <table id="table1" border="1">
+            <tr>
+                <td>기업번호
+                </td>
+                <td>기업명
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" id="bid" / >
+                </td>
+                <td>
+                    <input type="text" id="bizname" / >
+                </td>
+            </tr>
+            <%=tableString %>
+        </table>
+     </form>
+</body>
+</html>
+
+        //Reuqest["bid"] , //Reuqest["bizname"]
+        
+        //쿼리 실행
+        db.Execute("insert into TBIZ values('300','휴노300')");
+
+        //데이터 인서트
+        DataRow idr = db.cmdInsert("TBIZ");
+        idr["BID"] = "2000";
+        idr["BIZNAME"] = "휴노200";
+        db.insertUpdate(idr);
+
+        //데이터 수정
+        DataRow edr = db.cmdEdit("SELECT * FROM TBIZ WHERE BIZNAME = '삼성'");
+        edr["BIZNAME"] = "현대";
+        db.editUpdate(edr);
+
+        //데이터 삭제
+        db.Execute("DELETE FROM TBIZ WHERE BIZNAME ='삼성'");
+
+        foreach (DataRow dr in dt.Rows)
+        {
+            tableString += "<td>" + dr["userName"] + "</td>";
+            tableString += "<td>" + dr["number"] + "</td>";
+            tableString += "<td>" + dr["email"] + "</td>";
+        }
